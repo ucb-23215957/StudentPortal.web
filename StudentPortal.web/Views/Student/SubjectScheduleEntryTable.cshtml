@@ -1,0 +1,84 @@
+﻿@model List<StudentPortal.web.Models.Entities.Schedule>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@{
+    ViewData["Title"] = "SubjectScheduleEntryTable";
+    bool isUpdateMode = ViewBag.IsUpdateMode ?? false;
+    bool isDeleteMode = ViewBag.IsDeleteMode ?? false;
+}
+
+<div class="card-body2 border bg-secondary position-static">
+    <div class="card-body1 border bg-black">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white h2Index">SUBJECT LIST</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body3 border p-4">
+        <div class="row pb-3">
+            <div class="col-6 offset-6 text-end">
+                <a asp-controller="Student" asp-action="SubjectScheduleEntryMenu" class="btn btn-secondary">
+                    <i class="bi bi-plus-circle"></i> +
+                </a>
+            </div>
+        </div>
+        <div style="max-height: 400px; overflow-y: auto;">
+            <table class="table card-body4 table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>SubjectEDPCode</th>
+                        <th>SubjectCode</th>
+                        <th>Description</th>
+                        <th>TimeStart</th>
+                        <th>TimeEnd</th>
+                        <th>Am/Pm</th>
+                        <th>Days</th>
+                        <th>Section</th>
+                        <th>Room</th>
+                        <th>Year</th>
+                        @if (isUpdateMode || isDeleteMode)
+                        {
+                            <th>Action</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var student in Model)
+                    {
+                        <tr>
+                            <td>@student.SubjectEDPCode</td>
+                            <td>@student.SubjectCode</td>
+                            <td>@student.Description</td>
+                            <td>@student.TimeStart</td>
+                            <td>@student.TimeEnd</td>
+                            <td>@student.AmPm</td>
+                            <td>@student.Days</td>
+                            <td>@student.Section</td>
+                            <td>@student.Room</td>
+                            <td>@student.Year</td>
+                            @if (isUpdateMode)
+                            {
+                                <td>
+                                    <a asp-action="UpdateSubjectScheduleEntry" asp-route-id="@student.Id" class="btn btn-primary">Edit</a>
+                                </td>
+                            }
+                            else if (isDeleteMode)
+                            {
+                                <td>
+                                    <form asp-action="DeleteSubjectScheduleEntry" method="post">
+                                        <input type="hidden" name="id" value="@student.Id" />
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="bi bi-trash"></i> Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

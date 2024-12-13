@@ -1,0 +1,93 @@
+﻿@model StudentPortal.web.Models.Entities.Schedule
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="student-registration-form1 i2">
+    <div class="student-form-card1 shadow">
+        <div class="student-form-header1 bg-primary text-white py-3">
+            <h1 class="text-center mb-0">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+                <i class="bi bi-person-plus-fill me-2 st1"></i>SUBJECT SCHEDULE ENTRY
+            </h1>
+        </div>
+        <div class="student-form-body p-4 bg1">
+            <form method="post">
+                <div class="row g-4">
+                    <!-- Name Fields -->
+                    <div class="form-floating col-md-4">
+                        <i class="bi bi-book-fill student-form-icon9"></i>
+                        <input asp-for="SubjectEDPCode" class="student-form-input9 form-control" placeholder="SubjectEDPCode" />
+                        <label asp-for="SubjectEDPCode" class="student-form-label9">SubjectEDPCode</label>
+                        <span asp-validation-for="SubjectEDPCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-4">
+                        <i class="bi bi-book-fill student-form-icon10"></i>
+                        <input asp-for="SubjectCode" class="student-form-input10 form-control" placeholder="SubjectCode" />
+                        <label asp-for="SubjectCode" class="student-form-label10">SubjectCode</label>
+                        <span asp-validation-for="SubjectCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-4">
+                        <i class="bi bi-book-fill student-form-icon11"></i>
+                        <input asp-for="Description" class="student-form-input11 form-control" placeholder="Description" />
+                        <label asp-for="Description" class="student-form-label11 label12">Description</label>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-4">
+                        <i class="bi bi-calendar-fill student-form-icon12"></i>
+                        <input asp-for="TimeStart" class="student-form-input12 form-control" placeholder="TimeStart" />
+                        <label asp-for="TimeStart" class="student-form-label12 ">TimeStart</label>
+                        <span asp-validation-for="TimeStart" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-4">
+                        <i class="bi bi-calendar-fill student-form-icon13"></i>
+                        <input asp-for="TimeEnd" class="student-form-input13 form-control" placeholder="TimeEnd" />
+                        <label asp-for="TimeEnd" class="student-form-label13">TimeEnd</label>
+                        <span asp-validation-for="TimeEnd" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-4 ">
+                        <i class="bi bi-calendar-fill student-form-icon14"></i>
+                        <input asp-for="Days" class="student-form-input14 form-control" placeholder="Days" />
+                        <label asp-for="Days" class="student-form-label14">Days</label>
+                        <span asp-validation-for="Days" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-5 ">
+                        <i class="bi bi-book-fill student-form-icon15"></i>
+                        <input asp-for="Room" class="student-form-input15 form-control" placeholder="Room" />
+                        <label asp-for="Room" class="student-form-label15">Room</label>
+                        <span asp-validation-for="Room" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-5 ">
+                        <i class="bi bi-book-fill student-form-icon16"></i>
+                        <input asp-for="Section" class="student-form-input16 form-control" placeholder="Section" />
+                        <label asp-for="Section" class="student-form-label16">Section</label>
+                        <span asp-validation-for="Section" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-5 ">
+                        <i class="bi bi-calendar-fill student-form-icon17"></i>
+                        <input asp-for="Year" class="student-form-input17 form-control" placeholder="Year" />
+                        <label asp-for="Year" class="student-form-label17">Year</label>
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-5">
+                        <select asp-for="AmPm" class="student-form-input18 form-select">
+                            <option value=""></option>
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                        <i class="bi bi-book-fill student-form-icon18"></i>
+                        <label asp-for="AmPm" class="student-form-label18">AM/PM</label>
+                        <span asp-validation-for="AmPm" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class="student-form-button2 student-form-button-success w-100 py-3">
+                            <i class="bi bi-check-circle-fill me-2"></i>EDIT
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <a asp-controller="Student" asp-action="SubjectScheduleEntryMenu" class="student-form-button3 student-form-button-danger w-100 py-3">
+                            <i class="bi bi-x-circle-fill me-2"></i>Cancel
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+﻿@model StudentPortal.web.Models.CreateStudentViewModel
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="student-registration-form i1">
+    <div class="student-form-card shadow">
+        <div class="student-form-header bg-primary text-white py-3">
+            <h1 class="text-center mb-0">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+                <i class="bi bi-person-plus-fill me-2"></i>ADD STUDENT
+            </h1>
+        </div>
+        <div class="student-form-body p-4 bg">
+            <form method="post" asp-action="Create" asp-controller="Student">
+                <div class="row g-4">
+
+                    <div class="form-floating col-md-4 position-relative">
+                        <i class="bi bi-person-fill student-form-icon"></i>
+                        <input asp-for="Lastname" class="student-form-input form-control" placeholder="Lastname" />
+                        <label asp-for="Lastname" class="student-form-label label10">Lastname</label>
+                        <span asp-validation-for="Lastname" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-4 position-relative">
+                        <i class="bi bi-person-fill student-form-icon"></i>
+                        <input asp-for="Firstname" class="student-form-input form-control" placeholder="Firstname" />
+                        <label asp-for="Firstname" class="student-form-label label11">Firstname</label>
+                        <span asp-validation-for="Firstname" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-4 position-relative">
+                        <i class="bi bi-person-fill student-form-icon"></i>
+                        <input asp-for="Middlename" class="student-form-input form-control" placeholder="Middlename" />
+                        <label asp-for="Middlename" class="student-form-label label12">Middlename</label>
+                        <span asp-validation-for="Middlename" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating col-md-6 position-relative">
+                        <i class="bi bi-book-fill student-form-icon"></i>
+                        <input asp-for="Course" class="student-form-input form-control" placeholder="Course" />
+                        <label asp-for="Course" class="student-form-label label13">Course</label>
+                        <span asp-validation-for="Course" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating col-md-6 position-relative">
+                        <i class="bi bi-calendar-fill student-form-icon"></i>
+                        <input asp-for="Year" class="student-form-input form-control" placeholder="Year" />
+                        <label asp-for="Year" class="student-form-label label14">Year</label>
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <button type="submit" class="student-form-button student-form-button-success w-100 py-3">
+                            <i class="bi bi-check-circle-fill me-2"></i>Create
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <a asp-controller="Student" asp-action="Menu" class="student-form-button student-form-button-danger w-100 py-3">
+                            <i class="bi bi-x-circle-fill me-2"></i>Cancel
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿@model StudentPortal.web.Models.Entities.User
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="card-body8 border bg-secondary position-static">
+    <h1 class="menu4">Welcome to JLACADEMY</h1>
+    <div class="card-body9 border">
+        <div class="card-body10 border align-items-center">
+            <form asp-action="Login" method="post">
+                <div>
+                    <label class="label6 text-white" for="Username">Username:</label>
+                    <input type="text" id="Username" name="Username" class="form-control input6" placeholder="Enter your username" required />
+                </div>
+                <div class="form-group mt-3">
+                    <label class="label7 text-white" for="Password">Password:</label>
+                    <input type="password" id="Password" name="Password" class="form-control input7" placeholder="Enter your password" required />
+                </div>
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="text-danger mt-0 menu6">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+
+                }
+
+                <div class="form-group mt-3">
+                    <button type="submit" class="button8 text-center form-control">
+                        <i class="bi bi-x-circle"></i> Login
+                    </button>
+                </div>
+
+                <div class="form-group mt-3">
+                    <p class="text-center">
+                        <a asp-controller="Account" asp-action="ForgotPassword" class="text-white">Forgot Password?</a> |
+                        <a asp-controller="Account" asp-action="Register" class="text-white">Register Here</a>
+                    </p>
+                </div>
+            </form>
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="success-message">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+} 

@@ -1,0 +1,22 @@
+﻿@model List<StudentPortal.web.Models.Entities.Schedule>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="card-body16 border bg-secondary position-static">
+	<h1 class="menu2 ">MENU</h1>
+	<div class="card-body17 border">
+		<div class="card-body18 border	align-items-center">
+			<div>
+				<a asp-controller="Student" asp-action="SubjectScheduleEntry" class="button3 form-control">
+					<i class="bi bi-plus-circle"></i> Add New Subject Schedule
+				</a>
+				<a asp-controller="Student" asp-action="SubjectScheduleEntryTable" asp-route-isUpdateMode="true" class="button4 form-control">
+					<i class="bi bi-pencil"></i> Update Subject Schedule
+				</a>
+				<a asp-controller="Student" asp-action="DeleteSubjectScheduleEntry" class="button5 form-control">
+					<i class="bi bi-trash"></i> Delete Subject Schedule
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

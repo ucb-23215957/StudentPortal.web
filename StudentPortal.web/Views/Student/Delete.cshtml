@@ -1,0 +1,140 @@
+﻿@model StudentPortal.web.Models.Entities.Student
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class=" card-body12 border ">
+    <div class="card-body7 border bg-secondary">
+        <h1 class="menu3">DELETE STUDENT</h1>
+    </div>
+
+    <div class="card-body11 border">
+        <form method="post">
+            <div class="form-floating">
+                <input asp-for="Firstname" class="form-control input1 w-25" />
+                <label asp-for="Firstname" class="label1"></label>
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Lastname" class="form-control input2 w-25" />
+                <label asp-for="Lastname" class="label2"></label>
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Middlename" class="form-control input3 w-25" />
+                <label asp-for="Middlename" class="label3"></label>
+                <span asp-validation-for="Middlename" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Course" class="form-control input3 w-25" />
+                <label asp-for="Course" class="label3"></label>
+                <span asp-validation-for="Course" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Year" class="form-control input3 w-25" />
+                <label asp-for="Year" class="label3"></label>
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="button1 form-control">
+                <i class="bi bi-check-circle"></i> Delete
+            </button>
+
+            <a asp-controller="Home" asp-action="Index" class="button2 form-control">
+                <i class="bi bi-x-circle"></i> Cancel
+            </a>
+        </form>
+    </div>
+</div>
+
+@* <div class="w-100 card border-0 p-4">
+    <div class="card-header bg-primary bg-gradient ml-0 py-2">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Update Student</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body border p-4">
+        <form method="post">
+            <input asp-for="Id" hidden />
+            <div class="p-3">
+
+                <div class="form-floating py-1 col-12">
+                    <input asp-for="Firstname" class="form-control" />
+                    <label asp-for="Firstname" class="ms-2"></label>
+                    <span asp-validation-for="Firstname" class="text-danger"></span>
+
+                </div>
+
+                <div class="form-floating py-1 col-12">
+                    <input asp-for="Lastname" class="form-control" />
+                    <label asp-for="Lastname" class="ms-2"></label>
+                    <span asp-validation-for="Lastname" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-1 col-12">
+                    <input asp-for="Middlename" class="form-control" />
+                    <label asp-for="Middlename" class="ms-2"></label>
+                </div>
+
+                <div class="row pt-2">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-success w-100 form-control">
+                            <i class="bi bi-check-circle"></i> Update
+                        </button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary w-100 form-control">
+                            <i class="bi bi-x-circle"></i> Cancel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>  *@
+
+@* <div class="w-100 card border-0 p-4">
+    <div class="card-header bg-primary bg-gradient ml-0 py-2">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Delete Student</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body border p-4">
+        <form method="post">
+            <input asp-for="Id" hidden />
+            <div class="p-3">
+
+                <div class="form-floating py-1 col-12">
+                    <input asp-for="Firstname" disabled class="form-control" />
+                    <label asp-for="Firstname" class="ms-2"></label>
+                </div>
+
+                <div class="form-floating py-1 col-12">
+                    <input asp-for="Lastname" disabled class="form-control" />
+                    <label asp-for="Lastname" class="ms-2"></label>
+
+                </div>
+                <div class="form-floating py-1 col-12">
+                    <input asp-for="Middlename" disabled class="form-control" />
+                    <label asp-for="Middlename" class="ms-2"></label>
+                </div>
+
+                <div class="row pt-2">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-danger w-100 form-control">
+                            <i class="bi bi-trash-fill"></i> Delete
+                        </button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Student" asp-action="Index" class="btn btn-secondary w-100 form-control">
+                            <i class="bi bi-x-circle"></i> Cancel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+ *@

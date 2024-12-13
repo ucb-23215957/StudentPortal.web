@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Enrollment Entry</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="enroll-body">
+    <div class="container mt-2">
+        <div class="text-center mb-4">
+            <h1 class="text-uppercase text-light">Student Enrollment Entry</h1>
+        </div>
+        <div class="card custom-card p-4">
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label for="idNumber" class="form-label">ID Number</label>
+                    <input type="text" id="idNumber" class="form-control" onkeydown="fetchStudentDetails(event)">
+                </div>  
+                <div class="col-md-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" class="form-control" readonly>
+                </div>
+                <div class="col-md-3">
+                    <label for="course" class="form-label">Course</label>
+                    <input type="text" id="course" class="form-control" readonly>
+                </div>
+                <div class="col-md-3">
+                    <label for="year" class="form-label">Year</label>
+                    <input type="text" id="year" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label for="edpCode" class="form-label">EDP Code</label>
+                    <input type="text" id="edpCode" class="form-control" placeholder="Enter EDP Code" onkeydown="handleKeyPress(event)">
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6 offset-md-3">
+                        <div class="d-flex">
+                            <button class="menubutton">Menu</button>
+                            <button class="menubutton1" id="saveButton" onclick="saveEnrollment()">Save</button>
+                        </div>
+                    </div>
+                </div>  
+
+            </div>
+            <div class="table-responsive tablesx">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>EDP Code</th>
+                            <th>Subject Code</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Days</th>
+                            <th>Room</th>
+                            <th>Units</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label for="encodedBy" class="form-label">Encoded By:</label>
+                    <input type="text" id="encodedBy" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label for="date" class="form-label">Date:</label>
+                    <input type="date" id="date" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label for="totalUnits" class="form-label">Total Units:</label>
+                    <input type="text" id="totalUnits" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+
+<script>
+    let studentId = null;
+    function fetchStudentDetails(event) {
+        if (event.key === "Enter") {
+            const idNumber = document.getElementById("idNumber").value;
+
+            if (idNumber) {
+                // Call the controller action using fetch to get student details
+                fetch(`/Student/GetStudentById?id=${idNumber}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data) {
+                            // Fill in the Name, Course, and Year fields
+                            document.getElementById("name").value = `${data.firstname} ${data.lastname}`;
+                            document.getElementById("course").value = data.course;
+                            document.getElementById("year").value = data.year;
+                        } else {
+                            // Handle case where student is not found
+                            alert("Student not found!");
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching student details:', error);
+                    });
+            }
+        }
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === "Enter") {
+            fetchScheduleEntries();
+        }
+    }
+
+    function fetchScheduleEntries() {
+        const edpCode = document.getElementById("edpCode").value;
+
+        if (edpCode) {
+            fetch(`/Student/GetScheduleEntries?edpCode=${encodeURIComponent(edpCode)}`)
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector("table tbody");
+                    tableBody.innerHTML = ""; // Clear existing rows
+
+                    if (data && data.length > 0) {
+                        data.forEach(entry => {
+                            const row = `
+                                        <tr>
+                                            <td>${entry.subjectEDPCode}</td>
+                                            <td>${entry.subjectCode}</td>
+                                            <td>${entry.timeStart}</td>
+                                            <td>${entry.timeEnd}</td>
+                                            <td>${entry.days}</td>
+                                            <td>${entry.room}</td>
+                                            <td>${entry.description}</td>
+                                        </tr>
+                                    `;
+                            tableBody.innerHTML += row;
+                        });
+                    } else {
+                        tableBody.innerHTML = `<tr><td colspan="7">No entries found.</td></tr>`;
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching schedule entries:", error);
+                });
+        } else {
+            alert("Please enter an EDP Code.");
+        }
+    }
+
+
+
+
+</script>

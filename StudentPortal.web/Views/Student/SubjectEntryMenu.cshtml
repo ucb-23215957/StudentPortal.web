@@ -1,0 +1,20 @@
+﻿<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="card-body16 border bg-secondary position-static">
+	<h1 class="menu2 ">MENU</h1>
+	<div class="card-body17 border">
+		<div class="card-body18 border	align-items-center">
+			<div>
+				<a asp-controller="Student" asp-action="SubjectEntry" class="button3 form-control">
+					<i class="bi bi-plus-circle"></i> Add New Subject
+				</a>
+				<a asp-controller="Student" asp-action="SubjectEntryTable" asp-route-isUpdateMode="true" class="button4 form-control">
+					<i class="bi bi-pencil"></i> Update Subject
+				</a>
+				<a asp-controller="Student" asp-action="DeleteSubjectEntry" class="button5 form-control">
+					<i class="bi bi-trash"></i> Delete Subject
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

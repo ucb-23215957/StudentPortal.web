@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\John Laurence\Desktop\Publish</_PublishTargetUrl>
+    <History>True|2024-12-10T06:17:44.2114844Z;True|2024-12-09T20:04:09.5883475+08:00;True|2024-12-09T19:40:34.1452886+08:00;True|2024-12-09T19:15:31.8063896+08:00;True|2024-12-09T19:12:19.1971528+08:00;True|2024-12-09T19:11:21.8613180+08:00;True|2024-12-09T18:11:15.4844775+08:00;True|2024-12-09T18:04:39.2518887+08:00;True|2024-11-30T20:33:13.7843655+08:00;True|2024-11-30T20:26:14.6555321+08:00;True|2024-11-30T20:22:13.8670007+08:00;True|2024-11-30T19:37:10.1444104+08:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

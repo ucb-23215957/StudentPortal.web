@@ -1,0 +1,82 @@
+﻿@model List<StudentPortal.web.Models.Entities.SubjectEntry>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@{
+    ViewData["Title"] = "SubjectEntryTable";
+    bool isUpdateMode = ViewBag.IsUpdateMode ?? false;
+    bool isDeleteMode = ViewBag.IsDeleteMode ?? false;
+}
+
+<div class="card-bodyy2 border bg-secondary position-static">
+    <div class="card-bodyy1 border bg-black">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white h2Index">SUBJECT LIST</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-bodyy3 border p-4">
+        <div class="row pb-3">
+            <div class="col-6 offset-6 text-end">
+                <a asp-controller="Student" asp-action="SubjectEntryMenu" class="btn btn-secondary">
+                    <i class="bi bi-plus-circle"></i> +
+                </a>
+            </div>
+        </div>
+        <div style="max-height: 400px; overflow-y: auto;">
+            <table class="table card-bodyy4 table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Description</th>
+                        <th>Units</th>
+                        <th>Offering</th>
+                        <th>Category</th>
+                        <th>CourseCode</th>
+                        <th>CurriculumYear</th>
+                        <th>SubjectCode</th>
+                        <th>Pre/Co</th>
+                        @if (isUpdateMode || isDeleteMode)
+                        {
+                            <th>Action</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var student in Model)
+                    {
+                        <tr>
+                            <td>@student.Subject</td>
+                            <td>@student.Description</td>
+                            <td>@student.Units</td>
+                            <td>@student.Offering</td>
+                            <td>@student.Category</td>
+                            <td>@student.CourseCode</td>
+                            <td>@student.CurriculumYear</td>
+                            <td>@student.SubjectCode</td>
+                            <td>@student.PreCorReq</td>
+                            @if (isUpdateMode)
+                            {
+                                <td>
+                                    <a asp-action="UpdateSubjectEntry" asp-route-id="@student.Id" class="btn btn-primary">Edit</a>
+                                </td>
+                            }
+                            else if (isDeleteMode)
+                            {
+                                <td>
+                                    <form asp-action="DeleteSubjectEntry" method="post">
+                                        <input type="hidden" name="id" value="@student.Id" />
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="bi bi-trash"></i> Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

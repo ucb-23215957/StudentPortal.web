@@ -1,0 +1,58 @@
+﻿@model StudentPortal.web.Models.Entities.Registration
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="card-body13 border bg-secondary position-static">
+    <h1 class="menu5">REGISTER</h1>
+    <div class="card-body14 border">
+        <div class="card-body15 border align-items-center">
+            <form asp-action="Register" method="post">
+                <div>
+                    <label class="label6 text-white" for="Username">Username:</label>
+                    <input type="text" id="Username" name="Username" class="form-control input6" placeholder="Enter your username" required />
+                </div>
+                <div class="form-group">
+                    <label class="label8 text-white" for="Password">Password:</label>
+                    <input type="password" id="Password" name="Password" class="form-control input8" placeholder="Enter your password" required />
+                </div>
+                <div class="form-group">
+                    <label class="label9 text-white" for="ConfirmPassword">Confirm Password:</label>
+                    <input type="password" id="ConfirmPassword" name="ConfirmPassword" class="form-control input9" placeholder="Confirm your password" required />
+                </div>
+                <div class="form-group">
+                    <label class="label9 text-white" for="Email">Email:</label>
+                    <input type="text" id="Email" name="Email" class="form-control input9" placeholder="Email" required />
+                </div>
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="text-danger menu7">
+                        <label class="text-danger menu8">Password does not match or other errors.</label>
+                    </div>
+                }
+
+                <div class="form-group">
+                    <button type="submit" class="button10 text-center form-control">
+                        <i class="bi bi-check-circle"></i> Register
+                    </button>
+                </div>
+
+                <div class="form-group mt-2">
+                    <p class="text-center">
+                        <a asp-controller="Account" asp-action="Login" class="text-white">Already have an account? Login here.</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
